@@ -13,16 +13,16 @@
 **CLO: 1, 3, 5 (see above)**
 
 Your project should have:
-- A NavMesh Agent 
-- A custom script for the enemy to handle navigation 
-- A flocking manager script to manage the flock
+- [A NavMesh Agent](https://i.imgur.com/WBPh3S5.gif)
+- [A custom script for the enemy to handle navigation](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy1.cs#L32)
+- [A flocking manager script to manage the flock](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy1.cs#L10)
 
 AI Implementation:  
-- This enemy should spawn from a pink spawn location and use NavMesh components to move towards the blue area
-- Every 30 seconds a new enemy should spawn from the spawner for a maximum of 20 enemies
-- The enemies should move towards the flocking area with the blue flooring 
-- Once there, they should remain in the blue section moving around cohesively using flocking
-- The flocking controller should have exposed parameters in the editor to determine how much weight, range or distance the enemies can have
+- This enemy should spawn from a [pink spawn location](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/EnemySpawner.cs#L17) and use NavMesh components to [move towards the blue area](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy1.cs#L34)
+- [Every 30 seconds a new enemy should spawn from the spawner for a maximum of 20 enemies](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/EnemySpawner.cs#L12-L13)
+- [The enemies should move towards the flocking area with the blue flooring](https://i.imgur.com/bB68lDc.png) 
+- [Once there, they should remain in the blue section moving around cohesively using flocking](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy1.cs#L55-L62)
+- [The flocking controller should have exposed parameters in the editor to determine how much weight, range or distance the enemies can have](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy1.cs#L10-L18)
 
 ## PLAR Enemy 2 – FSM, Behaviour Trees, Waypoints and Navigation
 
@@ -30,28 +30,28 @@ AI Implementation:
 
 Your project should demonstrate knowledge of the following: 
 
-- Node and Edge classes 
-- A custom script for the enemy to handle navigation 
-- An array of waypoints 
-- Finite State machine Enum 
-- Behaviour Tree handling of states
-- 3D Gameobjects for use as waypoint targets 
+- [Node and Edge classes](https://github.com/CatSandwich/AI/tree/master/Assets/Scripts/BehaviourTree)
+- [A custom script for the enemy to handle navigation](https://github.com/CatSandwich/AI/tree/master/Assets/Scripts/StateMachine)
+- [An array of waypoints](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L21) 
+- [Finite State machine Enum](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L81-L86) 
+- [Behaviour Tree handling of states](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L50-L64)
+- [3D Gameobjects for use as waypoint targets](https://i.imgur.com/31dXjkT.png) 
 - Raycasting 
 
 AI Implementation:  
 
-- Create a Finite state machine for the enemy2 prefab which contains at least 3 states (Idle, Following, Attacking, etc...) 
-- Create a waypoint system which directs the enemy around the map from one end of the green floored hallway to the other and back again 
+- [Create a Finite state machine for the enemy2 prefab which contains at least 3 states (Idle, Following, Attacking, etc...)](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L25-L39)
+- [Create a waypoint system which directs the enemy around the map from one end of the green floored hallway to the other and back again](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/StateMachine/IdleState.cs#L16-L26)
   - This should continuously loop
-- Add to the enemy2 an implementation of a Behavior Tree which contains the following: 
-  - Sequence Nodes node(s) 
-  - Selector Nodes 
-  - Conditions 
+- Add to the enemy2 an implementation of a [Behavior Tree]((https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L50-L64)) which contains the following: 
+  - [Sequence Nodes node(s)](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/BehaviourTree/SequenceNode.cs) 
+  - [Selector Nodes](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/BehaviourTree/SelectorNode.cs) 
+  - [Conditions](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/BehaviourTree/ConditionNode.cs) 
 - The enemy should have multiple state changes (each with a different animation or some visible change noted like a colour change on the enemy):
-  - **IDLE (Green):** The enemy should begin in the idle state and walk around the waypoint path of the entire map.	 
-  - **FOLLOWING (Yellow):** The enemy should change to following when the user is within a larger radius. 
-  - **ATTACKING (Red):** The enemy should change to attacking when the user is within a more confined radius. 
-- If the player flees both radiuses, the enemy should attempt to return to its idle state and continue on its path around the map. 
+  - [**IDLE (Green):**](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/StateMachine/IdleState.cs) The enemy should begin in the idle state and walk around the waypoint path of the entire map.	 
+  - [**FOLLOWING (Yellow):**](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/StateMachine/FollowState.cs) The enemy should change to following when the user is within a larger radius. 
+  - [**ATTACKING (Red):**](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/StateMachine/AttackState.cs) The enemy should change to attacking when the user is within a more confined radius. 
+- If the player flees both radiuses, the enemy should attempt to [return to its idle state](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L63) and continue on its path around the map. 
 To accomplish this, the player should be able to move twice as quick as the enemy speed. 
 
 ## Submission: 
