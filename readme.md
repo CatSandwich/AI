@@ -30,13 +30,13 @@ AI Implementation:
 
 Your project should demonstrate knowledge of the following: 
 
-- [Node and Edge classes](https://github.com/CatSandwich/AI/tree/master/Assets/Scripts/BehaviourTree)
+- [Node and Edge classes](https://github.com/CatSandwich/AI/blob/master/theory.md#node-and-edge-classes)
 - [A custom script for the enemy to handle navigation](https://github.com/CatSandwich/AI/tree/master/Assets/Scripts/StateMachine)
 - [An array of waypoints](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L21) 
 - [Finite State machine Enum](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L81-L86) 
 - [Behaviour Tree handling of states](https://github.com/CatSandwich/AI/blob/master/Assets/Scripts/Enemy2.cs#L50-L64)
 - [3D Gameobjects for use as waypoint targets](https://i.imgur.com/31dXjkT.png) 
-- Raycasting 
+- [Raycasting](https://github.com/CatSandwich/AI/blob/master/theory.md#raycasting)
 
 AI Implementation:  
 
