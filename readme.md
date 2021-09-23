@@ -7,7 +7,6 @@
 4. Design detailed behaviour trees to control NPC’s decision making logic within a game. 
 5. Use realistic flocking behaviour to create varied movement within a group while maintaining a common target within a game. 
 
-
 ## PLAR Enemy 1 – Spawning, Vectors, NavMesh and Pathfinding
 
 **CLO: 1, 3, 5 (see above)**
