@@ -58,5 +58,5 @@ To accomplish this, the player should be able to move twice as quick as the enem
 
 You will be expected to submit a link to a github repository with a breakdown document which indicates all files and folders which 
 relate to the AI tasks above for review. You should have your name and date included in a comment in any custom scripts or functions 
-written for the project. You will need to include documentation which clearly explains where previous historic pathfinding algorithms 
-have led to the Implementation you have chosen for your pathfinding in this assignment to complete CLO1. 
+written for the project. You will need to include [documentation which clearly explains where previous historic pathfinding algorithms 
+have led to the Implementation you have chosen for your pathfinding in this assignment to complete CLO1](https://github.com/CatSandwich/AI/blob/master/theory.md). 
