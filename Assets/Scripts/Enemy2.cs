@@ -85,3 +85,6 @@ public class Enemy2 : MonoBehaviour
         Attacking
     }
 }
+
+/* Joshua Torrington-Smith
+ * 2021-09-22 */

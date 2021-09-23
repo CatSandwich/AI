@@ -2446,7 +2446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Parent: {fileID: 1481169209}
   EnemyPrefab: {fileID: 2726873371661945931, guid: b1b908b8c1d9cb54293d2b516dbf5b56, type: 3}
-  Cooldown: 2
+  Cooldown: 30
   Max: 20
 --- !u!1 &2073395468
 GameObject:

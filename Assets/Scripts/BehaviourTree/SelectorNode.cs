@@ -26,3 +26,6 @@ namespace BehaviourTree
         }
     }
 }
+
+/* Joshua Torrington-Smith
+ * 2021-09-22 */

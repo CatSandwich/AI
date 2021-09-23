@@ -15,3 +15,6 @@ namespace StateMachine
         public override void Update() => _script.MoveTowards(_script.Target.position, Time.deltaTime * _script.Speed);
     }
 }
+
+/* Joshua Torrington-Smith
+ * 2021-09-22 */
