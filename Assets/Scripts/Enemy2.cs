@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BehaviourTree;
 using StateMachine;
 using UnityEngine;
@@ -19,16 +20,32 @@ public class Enemy2 : MonoBehaviour
     [Header("Navigation")]
     public Transform[] Waypoints;
     public float Speed;
-
     [NonSerialized] public int CurrentWaypoint;
+    
+    #region FSM
+    public StateEnum State
+    {
+        get => _state;
+        set
+        {
+            if (value == _state) return;
+            _states[_state].Exit();
+            _state = value;
+            _states[_state].Enter();
+        }
+    }
+    private StateEnum _state = StateEnum.Idle;
+    private readonly Dictionary<StateEnum, State> _states = new Dictionary<StateEnum, State>();
+    #endregion
     
     private SelectorNode _root;
 
-    public State State;
-
     void Start()
     {
-        State = new IdleState(this);
+        // Initialize FSM states
+        _states[StateEnum.Idle] = new IdleState(this);
+        _states[StateEnum.Attacking] = new AttackState(this);
+        _states[StateEnum.Following] = new FollowState(this);
         
         // Behaviour tree
         _root = new SelectorNode // Finds first applicable state
@@ -36,28 +53,21 @@ public class Enemy2 : MonoBehaviour
             new SequenceNode // Try attack
             {
                 new ConditionNode(() => (Target.position - transform.position).magnitude <= AttackRange), // If close enough
-                new ActionNode(() => PushState(new AttackState(this))) // Set to attack state
+                new ActionNode(() => State = StateEnum.Attacking) // Set to attack state
             },
             new SequenceNode // Try follow
             {
                 new ConditionNode(() => (Target.position - transform.position).magnitude <= FollowRange), // If close enough
-                new ActionNode(() => PushState(new FollowState(this))) // Set to follow state
+                new ActionNode(() => State = StateEnum.Following) // Set to follow state
             },
-            new ActionNode(() => PushState(new IdleState(this))) // Set to idle state
+            new ActionNode(() => State = StateEnum.Idle) // Set to idle state
         };
     }
     
     void Update()
     {
         _root.Evaluate();
-        State.Update();
-    }
-
-    public void PushState(State state)
-    {
-        State.Exit();
-        State = state;
-        State.Enter();
+        _states[State].Update();
     }
 
     public float MoveTowards(Vector3 target, float distance)
@@ -66,5 +76,12 @@ public class Enemy2 : MonoBehaviour
         var remaining = distance - (transform.position - target).magnitude;
         transform.position = Vector3.MoveTowards(transform.position, target, distance);
         return remaining;
+    }
+
+    public enum StateEnum
+    {
+        Idle,
+        Following,
+        Attacking
     }
 }
