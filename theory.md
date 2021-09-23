@@ -36,3 +36,9 @@ The algorithm is a bit too complex to reduce to steps, but here's an incredible 
 In this project, I chose A* for two major reasons:
 - It's built into Unity using the NavMesh system, so I needed only build the graph (bake a NavMesh), then set the destination
 - It's one of the best, if not the best pathfinding algorithm used in games; no reason not to use the built-in functionality
+
+## Concepts
+
+### Node and Edge Classes
+
+### Raycasting
