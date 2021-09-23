@@ -40,5 +40,18 @@ In this project, I chose A* for two major reasons:
 ## Concepts
 
 ### Node and Edge Classes
+As I was using Unity's built-in navigation, I didn't need any custom implementation of graphs, so I will explain the concept instead.
+
+Node - A node is a point on a graph
+Edge - An edge is a connection between two nodes
+
+These two concepts can build an entire graph, allowing for navigation along the graph. Depending on what the implementation is for, you may need different data in each class, such as difficulty to get between two nodes, or a difficulty value on the connecting edge. This would change navigation, as the goal is to find the least difficult path.
+
+Depending on the implentation, nodes may know about their connecting edges, or edges might store information about which nodes they connect. Either way, navigation will use the information in these classes to determine which edges and nodes to travel through to get from point A to point B.
 
 ### Raycasting
+I had at some point implemented raycasting in the project to make Enemy1 avoid the walls while flocking. I opted to replace that system with a smaller mesh that if left, would instruct them to turn back towards the middle of the area.
+
+Anyway. In terms of theory, raycasting is when you send out (cast) a line (ray) in a direction to see what it hits. It is very versatile and is used in many contexts. In AI, it is often used to give "sight." In the context of this project, I had the flocking enemies look 2 units in front of them in 45 degree angles each way (a cone). This would not only tell the enemy when it was about to hit a wall, but also instruct it which way to turn based on which ray hit the wall (if the 45 degree right ray hit the wall, turn left and vice-versa). 
+
+The reason I dropped this implementation was because once the enemy turned just slightly, the raycast would no longer hit the wall, making them go straight into it again, repeating the process until it eventually walked along the wall. While this could have been fixed by simply making the enemy turn fully backwards or some similar design choice, I opted to make a valid area for them to stay within where they would turn around upon leaving it. This gives the illusion of sight all the same by keeping them a distance away from walls.
