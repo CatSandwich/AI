@@ -42,7 +42,7 @@ In this project, I chose A* for two major reasons:
 ### Node and Edge Classes
 As I was using Unity's built-in navigation, I didn't need any custom implementation of graphs, so I will explain the concept instead.
 
-Node - A node is a point on a graph
+Node - A node is a point on a graph\
 Edge - An edge is a connection between two nodes
 
 These two concepts can build an entire graph, allowing for navigation along the graph. Depending on what the implementation is for, you may need different data in each class, such as difficulty to get between two nodes, or a difficulty value on the connecting edge. This would change navigation, as the goal is to find the least difficult path.
